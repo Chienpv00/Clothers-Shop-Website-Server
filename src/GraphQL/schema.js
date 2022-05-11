@@ -1,7 +1,7 @@
-import { join } from 'path';
-import { readdirSync, readFileSync } from 'fs';
-import { makeExecutableSchema } from '@graphql-tools/schema';
-import resolvers from './resolvers';
+const {join} = require('path')
+const {readdirSync, readFileSync} = require('fs');
+const { makeExecutableSchema }  = require('@graphql-tools/schema');
+const resolvers = require('./resolvers')
 
 const gqlFiles = readdirSync(join(__dirname, './typedefs'));
 
@@ -18,4 +18,4 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 
-export default schema;
+module.exports =  schema;

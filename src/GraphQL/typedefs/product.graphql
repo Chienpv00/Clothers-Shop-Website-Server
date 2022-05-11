@@ -1,17 +1,4 @@
-type Query {
-    getSanPham(type: String, limit: number): [Product]
-}
-
-
 type Product {
     id: String!
-    title: String!
-    oldPrice: Float!
-    newPrice: Float!
-    image: String!
-    category: String!
-    content: String!
-    type: String!
-    comment: [Comment]
-    listImage: [String!]!
 }
+

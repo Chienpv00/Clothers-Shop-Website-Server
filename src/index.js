@@ -1,25 +1,21 @@
-const { ApolloServer } = require("apollo-server");
-const schema = require('./GraphQL/schema');
-const MongoDB = require("./Service/dataSources/index");
+const { ApolloServer } = require("apollo-server-express");
+const express = require("express");
+const schema = require("./GraphQL/schema");
+const http = require("http");
+// const MongoDB = require("./Service/dataSources/index");
 
 async function startApolloServer(schema) {
+    const app = express();
+    const httpServer = http.createServer(app);
     const server = new ApolloServer({
         schema,
-        dataSources: () => {
-            return {
-                mongoDB: new MongoDB(),
-            };
-        },
     });
 
-    const { url, port } = await server.listen({
-        port: process.env.PORT || 4000,
-    });
-    console.log(`
-      🚀  Server is running
-      🔉  Listening on port ${port}
-      📭  Query at ${url}
-    `);
+    await server.start();
+    server.applyMiddleware({app});
+
+    await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+    console.log(`🚀 Server ready at http://localhost:${4000}${server.graphqlPath}`);
+
 }
-
 startApolloServer(schema);

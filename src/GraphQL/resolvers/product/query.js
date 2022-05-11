@@ -1,7 +1,9 @@
-const resolvers = {
-    Query: {
-        getSanPham: async (_, { type, limit }, { dataSources }) => {
-            return dataSources.mongoDB.getSanPham(type, limit);
-        },
+const productQueries = {
+    getProduct: async () => {
+        return {
+            id: "1",
+        };
     },
 };
+
+module.exports = productQueries;
