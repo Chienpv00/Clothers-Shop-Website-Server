@@ -1,4 +1,48 @@
 type Product {
-    id: String!
+    "unique id"
+    id: ID!
+    "name product"
+    title: String!
+    "old price "
+    oldPrice: Float!
+    "new Price"
+    newPrice: Float!
+    "url of image -> provide by express static file"
+    image: String!
+    "category, ex: quan, ao, ..."
+    category: String!
+    "description of product"
+    content: String!
+    "type of product, ex: new, trend, hot, ..."
+    type: String!
+    "Array Object Type Comment"
+    comment: [Comment]!
+}
+
+type Comment{
+    id: ID!
+    "user comment"
+    user: User!
+    "comment content"
+    content: String!
+    "rate"
+    star: Int
+    "reply cmt"
+    reply: [Comment]!
+}
+
+type Order {
+    id: ID!
+    "list of product"
+    product: [Product!]!
+    "total price of products"
+    totalPrice: Float!
+    timeOrder: Date!
+    "id of user order"
+    idUser: User!
+    "status: confirm or not"
+    status: Boolean!
+    "if cancel == null ... else ..."
+    cancel: String
 }
 

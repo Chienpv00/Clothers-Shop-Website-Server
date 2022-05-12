@@ -1,3 +1,4 @@
 type Query {
     getProduct: Product!
+    getAllProducts: [Product]!
 }
