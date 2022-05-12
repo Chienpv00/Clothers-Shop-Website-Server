@@ -1,4 +1,5 @@
 type Query {
     getProduct: Product!
     getAllProducts: [Product]!
+    getProductType(type: String, limit: Int): [Product]!
 }
