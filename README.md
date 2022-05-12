@@ -3,4 +3,4 @@
 ## Create mongo db with mongodb compas
  - Name DB: clothes
  - Colection:
-    + products
+    + test
