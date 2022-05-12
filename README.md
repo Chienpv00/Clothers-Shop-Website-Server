@@ -1,3 +1,6 @@
 # Clothers-Shop-Website-Server
-�testaestesj
-faldsjffad;fjasd
+
+## Create mongo db with mongodb compas
+ - Name DB: clothes
+ - Colection:
+    + products

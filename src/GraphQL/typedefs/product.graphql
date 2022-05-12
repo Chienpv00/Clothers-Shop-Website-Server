@@ -1,3 +1,5 @@
+scalar Date
+
 type Product {
     "unique id"
     id: ID!
@@ -37,7 +39,7 @@ type Order {
     product: [Product!]!
     "total price of products"
     totalPrice: Float!
-    timeOrder: Date!
+    timeOrder: String!
     "id of user order"
     idUser: User!
     "status: confirm or not"
