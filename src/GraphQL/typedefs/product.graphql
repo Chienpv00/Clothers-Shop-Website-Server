@@ -11,6 +11,9 @@ type Product {
     newPrice: Float!
     "url of image -> provide by express static file"
     image: String!
+
+    "sub image"
+    subImage: [String]
     "category, ex: quan, ao, ..."
     category: String!
     "description of product"
@@ -21,30 +24,4 @@ type Product {
     comment: [Comment]!
 }
 
-type Comment{
-    id: ID!
-    "user comment"
-    user: User!
-    "comment content"
-    content: String!
-    "rate"
-    star: Int
-    "reply cmt"
-    reply: [Comment]!
-}
-
-type Order {
-    id: ID!
-    "list of product"
-    product: [Product!]!
-    "total price of products"
-    totalPrice: Float!
-    timeOrder: String!
-    "id of user order"
-    idUser: User!
-    "status: confirm or not"
-    status: Boolean!
-    "if cancel == null ... else ..."
-    cancel: String
-}
 

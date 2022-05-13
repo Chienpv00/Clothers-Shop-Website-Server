@@ -1,27 +1,16 @@
-const { MongoDataSource } = require("apollo-datasource-mongodb");
+// cai nay dung de doc du lieu
+const { MongoDataSource } = require('apollo-datasource-mongodb');
+
+// cai nay dung de mutation du lieu
+const ProductModel = require('../../db/models/product');
 
 class Product extends MongoDataSource {
-    getProduct() {
-        // truy xuat vao db
-        // tra ve obj
-        return {
-            id: 1,
-            title: 'test',
-            oldPrice: 1000,
-            newPrice: 1233,
-            image: '2fsdfa',
-            category: '23423',
-            content: 'faadsf',
-            type: '2342343',
-            comment: ['23', '2']
-
-        }
-
+    async getProduct() {
+        const product = await this.findByFields({id: 1})
+        return product[0]
     }
 
-    getProductType(type, limit){
-        
-    }
+    getProductType(type, limit) {}
 }
 
 module.exports = Product;

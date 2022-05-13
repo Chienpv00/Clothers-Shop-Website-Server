@@ -1,0 +1,13 @@
+type Comment{
+    id: ID!
+    "user comment"
+    user: User!
+    "comment content"
+    content: String!
+    "rate"
+    star: Int
+    "reply cmt"
+    reply: [Comment]!
+}
+
+

@@ -1,0 +1,14 @@
+type Order {
+    id: ID!
+    "list of product"
+    product: [Product!]!
+    "total price of products"
+    totalPrice: Float!
+    timeOrder: String!
+    "id of user order"
+    use: User!
+    "status: confirm or not"
+    status: Boolean!
+    "if cancel == null ... else ..."
+    cancelMes: String
+}
