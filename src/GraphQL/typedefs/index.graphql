@@ -1,5 +1,19 @@
 type Query {
     getProduct: Product!
     getAllProducts: [Product]!
-    getProductType(type: String, limit: Int): [Product]!
+    getProductType(type: typeProd!, limit: Int!): [Product!]!
+    getProductCat(category: typeProdCat!, limit: Int!)
+}
+
+
+enum typeProd{
+    new
+    hot
+    trend
+}
+
+enum typeProdCat{
+    ao
+    quan
+    vay
 }
