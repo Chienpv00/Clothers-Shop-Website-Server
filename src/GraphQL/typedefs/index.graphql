@@ -2,7 +2,7 @@ type Query {
     getProduct: Product!
     getAllProducts: [Product]!
     getProductType(type: typeProd!, limit: Int!): [Product!]!
-    getProductCat(category: typeProdCat!, limit: Int!)
+    getProductCat(category: String!, limit: Int!): [Product!]!
 }
 
 
@@ -12,8 +12,3 @@ enum typeProd{
     trend
 }
 
-enum typeProdCat{
-    ao
-    quan
-    vay
-}
