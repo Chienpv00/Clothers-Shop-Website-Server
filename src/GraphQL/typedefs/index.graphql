@@ -3,12 +3,26 @@ type Query {
     getAllProducts: [Product]!
     getProductType(type: typeProd!, limit: Int!): [Product!]!
     getProductCat(category: String!, limit: Int!): [Product!]!
+    getProductsForHome: [[Product!]!]!
 }
 
+type Mutation{
+    createCus(user: CreateCus!): CreateCusResponse!
+}
 
 enum typeProd{
     new
     hot
     trend
+    newImport
 }
+
+input CreateCus{
+    userName: String!
+    password: String!
+    fullName: String!
+    phone: Int!
+    email: String!
+}
+
 
