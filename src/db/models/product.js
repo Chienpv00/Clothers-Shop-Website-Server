@@ -11,7 +11,7 @@ const ProductSchema = new Schema(
     category: {type: String, required: true},
     content: {type: String},
     type: {type: String, required: true},
-    comment: {type: Array},
+    commentId: {type: Array},
   },
 );
 
