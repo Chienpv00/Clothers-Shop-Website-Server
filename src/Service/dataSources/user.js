@@ -5,7 +5,9 @@ const { MongoDataSource } = require('apollo-datasource-mongodb');
 const UserModel = require('../../db/models/user.js');
 
 class User extends MongoDataSource {
-    
+    createUser({userName, password, fullName, phone, email}){
+
+    }
 }
 
 module.exports = User;

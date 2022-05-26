@@ -15,6 +15,7 @@ class Product extends MongoDataSource {
         const query = await ProductModel.find({ category: category }).limit(limit).sort({ id: -1 });
         return query;
     }
-}
+
+} 
 
 module.exports = Product;

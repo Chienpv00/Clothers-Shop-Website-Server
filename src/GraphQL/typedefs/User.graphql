@@ -11,3 +11,10 @@ type User{
     verificationCode: String!
     role: String!
 }
+
+type CreateCusResponse {
+    code: Int!
+    success: Boolean!
+    message: String!
+    user: User
+}
