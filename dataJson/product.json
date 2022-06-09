@@ -1,10 +1,9 @@
 [
-
     {
         "_id": { "$oid": "62a19ea8dacb30410149edcd" },
-        "id": { "$numberInt": "1" },
+        "id": 1,
         "title": "Áo Thun Gấu Nâu",
-        "price": { "$numberInt": "139000" },
+        "price": 139000,
         "thumbnail": "/public/other/aothungaunau.jpg",
         "category": "ao-thun",
         "type": "new",
@@ -14,11 +13,11 @@
         "form": "Croptop & Freesize ",
         "madeBy": "Việt Nam",
         "material": "Thun Cotton",
-        "size": [
+        "soldOut": false,
+        "sizes": [
             { "name": "S", "soldOut": false },
             { "name": "M", "soldOut": true },
-            { "name": "L", "soldOut": "false" }
-        ],
-        "soldOut": false
+            { "name": "L", "soldOut": true }
+        ]
     }
 ]
