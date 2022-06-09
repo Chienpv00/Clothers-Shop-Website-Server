@@ -11,6 +11,8 @@ const UserSchema = new Schema(
     enable: {type: Boolean, required: true},
     verificationCode: {type: String,},
     role: {type: String, required: true},
+    cartId: [Number],
+    prodBoughtId: [Number]
   },
 );
 

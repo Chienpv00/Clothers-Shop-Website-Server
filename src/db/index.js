@@ -17,8 +17,8 @@ const connect = async () => {
         '?retryWrites=true&w=majority';
     // optional params
     const params = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
     };
 
     try {

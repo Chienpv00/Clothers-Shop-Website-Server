@@ -1,14 +1,24 @@
 [
+
     {
-        "id": 2,
-        "title": "ÁO SƠ MI TAY NGẮN NHÚN THÂN SAU - 10S21SHSW011",
-        "oldPrice": 413000,
-        "newPrice": 299000,
-        "image": "test",
-        "subImage": [],
-        "category": "aothun",
-        "content": "test",
+        "_id": { "$oid": "62a19ea8dacb30410149edcd" },
+        "id": { "$numberInt": "1" },
+        "title": "Áo Thun Gấu Nâu",
+        "price": { "$numberInt": "139000" },
+        "thumbnail": "/public/other/aothungaunau.jpg",
+        "category": "ao-thun",
         "type": "new",
-        "comment": []
+        "commentId": [],
+        "description": "Áo Thun được thiết kế in hình gấu nâu tạo điểm nhấn.",
+        "color": "Xám",
+        "form": "Croptop & Freesize ",
+        "madeBy": "Việt Nam",
+        "material": "Thun Cotton",
+        "size": [
+            { "name": "S", "soldOut": false },
+            { "name": "M", "soldOut": true },
+            { "name": "L", "soldOut": "false" }
+        ],
+        "soldOut": false
     }
 ]

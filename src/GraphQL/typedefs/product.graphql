@@ -5,23 +5,28 @@ type Product {
     id: ID!
     "name product"
     title: String!
-    "old price "
-    oldPrice: Float!
     "new Price"
-    newPrice: Float!
+    price: Float!
     "url of image -> provide by express static file"
-    image: String!
-
-    "sub image"
-    subImage: [String]
+    thumbnail: String!
     "category, ex: quan, ao, ..."
     category: String!
     "description of product"
-    content: String!
+    description: String!
     "type of product, ex: new, trend, hot, ..."
     type: String!
     "Array Object Type Comment"
-    comment: [Comment]!
+    material: String!
+    form: String!
+    color: String!
+    madeBy: String!
+    sizes: [Size!]!
+    soldOut: Boolean!
+    commentId: [Comment]!
 }
 
+type Size {
+    name: String!
+    soldOut: Boolean!
+}
 
