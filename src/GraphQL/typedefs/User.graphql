@@ -1,10 +1,9 @@
 type User{
     id: ID!
-    userName: String!
     password: String!
     "information"
     fullName: String!
-    phone: Int!
+    phone: Int
     email: String!
     image: String
     enable: Boolean!
