@@ -1,6 +1,6 @@
 const productQueries = {
-    getProduct: async (_, __, {dataSources}) => {
-        const product = await dataSources.product.getProduct();
+    getProduct: async (_, {id}, {dataSources}) => {
+        const product = await dataSources.product.getProduct(id);
         return product;
     },
     getProductType: async (_, {type, limit}, {dataSources})=>{

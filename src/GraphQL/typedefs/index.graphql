@@ -1,5 +1,5 @@
 type Query {
-    getProduct: Product!
+    getProduct(id: Int!): Product!
     getAllProducts: [Product]!
     getProductType(type: typeProd!, limit: Int!): [Product!]!
     getProductCat(category: String!, limit: Int!): [Product!]!

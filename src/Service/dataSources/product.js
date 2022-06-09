@@ -5,6 +5,12 @@ const { MongoDataSource } = require('apollo-datasource-mongodb');
 const ProductModel = require('../../db/models/product');
 
 class Product extends MongoDataSource {
+    // get one product with id param
+    async getProduct(id){
+        const res = await this.findByFields({id: id})
+        return res[0]
+    }
+
     async getProductType(type, limit) {
         const query = await ProductModel.find({ type: type }).limit(limit).sort({ id: -1 });
 
