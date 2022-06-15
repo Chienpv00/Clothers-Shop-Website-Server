@@ -5,8 +5,37 @@ const { MongoDataSource } = require('apollo-datasource-mongodb');
 const UserModel = require('../../db/models/user.js');
 
 class User extends MongoDataSource {
-    createUser({userName, password, fullName, phone, email}){
+    async createUser({ fullName, password, email}){
+        const newUser = new UserModel({
+            email: email,
+            password: password,
+            phone: null,
+            fullName: fullName,
+            image: null,
+            enable: true,
+            verificationCode: false,
+            role: 'user',
+            cartId: [],
+            prodBoughtId: []
+        })
 
+        const res =  await newUser.save()
+        return res
+    }
+
+    async checkExist(email) {
+        const userRaw = await this.findByFields({email: email})
+        userRaw.length === 0 ? false : true
+    }
+
+    async checkLogin(email, password){
+        const raw = await this.findByFields({email: email, password: password})
+        return raw;
+    }
+
+    async getAllUsers(){
+        const raw = await this.findByFields({})
+        return raw
     }
 }
 

@@ -4,6 +4,19 @@ type Query {
     getProductType(type: typeProd!, limit: Int!): [Product!]!
     getProductCat(category: String!, limit: Int!): [Product!]!
     getProductsForHome: [[Product!]!]!
+
+
+
+    "user's land"
+    checkLogin(email: String!, password: String!): CheckLoginRes!
+    "get all users"
+    getAllUsers: [User!]
+
+    """
+    comments land
+    """
+    getAllComments: [Comment]!
+    getCommentsWithProd(prodId: ID!): [Comment]!
 }
 
 type Mutation{
@@ -18,11 +31,16 @@ enum typeProd{
 }
 
 input CreateCus{
-    userName: String!
-    password: String!
     fullName: String!
-    phone: Int!
     email: String!
+    password: String!
+}
+
+type CheckLoginRes{
+    code: Int!
+    success: Boolean!
+    message: String!
+    user: User
 }
 
 

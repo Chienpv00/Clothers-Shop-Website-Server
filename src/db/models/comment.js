@@ -5,7 +5,7 @@ const CommentSchema = new Schema({
     userId: { type: Number, required: true },
     content: { type: String, required: true },
     start: { type: Number, required: true },
-    reply: { type: Array, required: true },
+    commentsId: { type: Array },
 });
 
 module.exports = model('Comment', CommentSchema);

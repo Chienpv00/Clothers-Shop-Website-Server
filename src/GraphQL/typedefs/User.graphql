@@ -7,8 +7,10 @@ type User{
     email: String!
     image: String
     enable: Boolean!
-    verificationCode: String!
-    role: String!
+    verificationCode: String
+    role: Role!
+    cardId: [ID]
+    prodBoughtId: [ID]
 }
 
 type CreateCusResponse {
@@ -16,4 +18,9 @@ type CreateCusResponse {
     success: Boolean!
     message: String!
     user: User
+}
+
+emum Role {
+    ADMIN
+    USER
 }

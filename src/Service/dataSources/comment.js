@@ -5,7 +5,15 @@ const { MongoDataSource } = require('apollo-datasource-mongodb');
 const CommentModel = require('../../db/models/comment');
 
 class Comment extends MongoDataSource {
-    
+    async getAllComments(){
+        const raw = await this.findByFields({});
+        return raw
+    }
+
+    async getCommentById(id){
+        const raw = await this.findByFields({id: id})
+        return raw;
+    }
 }
 
 module.exports = Comment;
