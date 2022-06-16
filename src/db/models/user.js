@@ -11,6 +11,10 @@ const UserSchema = new Schema({
     role: { type: String, required: true },
     cartId: [Number],
     prodBoughtId: [Number],
+    created: {
+        type: Date,
+        default: Date.now
+      }
 });
 
 module.exports = model('User', UserSchema);

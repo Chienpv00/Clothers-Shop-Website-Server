@@ -1,4 +1,4 @@
-type User{
+type User {
     id: ID!
     password: String!
     "information"
@@ -8,7 +8,7 @@ type User{
     image: String
     enable: Boolean!
     verificationCode: String
-    role: Role!
+    role: Role
     cardId: [ID]
     prodBoughtId: [ID]
 }
@@ -20,7 +20,9 @@ type CreateCusResponse {
     user: User
 }
 
-emum Role {
+
+
+enum Role {
     ADMIN
     USER
 }

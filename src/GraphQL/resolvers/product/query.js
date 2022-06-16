@@ -12,7 +12,8 @@ const productQueries = {
         return productArr
     },
 
-    getProductsForHome: async(_, __, {dataSources})=>{
+    getProductsForHome: async(_, __, {dataSources, id, role})=>{
+        console.log(role)
         const dataNew = await dataSources.product.getProductType('new', 5)
         const dataHot = await dataSources.product.getProductType('hot', 5)
         const dataNewImport = await dataSources.product.getProductType('newImport', 5)

@@ -5,12 +5,14 @@ type Query {
     getProductCat(category: String!, limit: Int!): [Product!]!
     getProductsForHome: [[Product!]!]!
 
-
-
     "user's land"
     checkLogin(email: String!, password: String!): CheckLoginRes!
     "get all users"
     getAllUsers: [User!]
+
+    loggedInUser: User
+
+    getUser: User
 
     """
     comments land
@@ -19,28 +21,27 @@ type Query {
     getCommentsWithProd(prodId: ID!): [Comment]!
 }
 
-type Mutation{
+type Mutation {
     createCus(user: CreateCus!): CreateCusResponse!
+    login(email: String, password: String!): Tokens
 }
 
-enum typeProd{
+enum typeProd {
     new
     hot
     trend
     newImport
 }
 
-input CreateCus{
+input CreateCus {
     fullName: String!
     email: String!
     password: String!
 }
 
-type CheckLoginRes{
+type CheckLoginRes {
     code: Int!
     success: Boolean!
     message: String!
     user: User
 }
-
-
