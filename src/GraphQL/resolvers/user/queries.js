@@ -33,7 +33,6 @@ const userQueries = {
         
         const allUser = dataSources.user.getAllUsers();
         return allUser
-<<<<<<< Updated upstream
      },
 
      getUser: async (_, __, {dataSources, role, id}) => { 
@@ -41,9 +40,6 @@ const userQueries = {
         const user = await UserModel.findById(id)
         return user
     }
-=======
-     }
->>>>>>> Stashed changes
 };
 
 module.exports = userQueries;
