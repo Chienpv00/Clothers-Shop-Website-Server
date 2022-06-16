@@ -25,6 +25,10 @@ const userMutations = {
             };
         }
     },
+
+    login: (_, {email, password}, {dataSources}) => { 
+        return true
+     }
 };
 
 module.exports = userMutations;
