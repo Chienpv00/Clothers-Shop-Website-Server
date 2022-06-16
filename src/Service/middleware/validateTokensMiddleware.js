@@ -3,18 +3,23 @@ const setTokens = require('./setTokens');
 const UserModel = require('../../db/models/user');
 
 async function validateTokensMiddleware(req, res, next) {
+    // get refreshtoken
     const refreshToken = req.headers.refreshtoken;
 
+    // get accesstoken
     const accessToken = req.headers.accesstoken;
 
+    // if does not exists any token -> doesn't change req
     if (!accessToken && !refreshToken) return next();
 
+    // if have access token -> req.user = payload token
     const decodedAccessToken = validateAccessToken(accessToken);
     if (decodedAccessToken && decodedAccessToken.user) {
         req.user = decodedAccessToken.user;
         return next();
     }
 
+    // if does not have access token but have refresh token -> create access token
     const decodedRefreshToken = validateRefreshToken(refreshToken);
     if (decodedRefreshToken && decodedRefreshToken.user) {
         // valid refresh token
