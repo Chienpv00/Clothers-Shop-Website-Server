@@ -14,12 +14,14 @@ class User extends MongoDataSource {
             image: null,
             enable: true,
             verificationCode: false,
-            role: 'user',
+            role: 'USER',
             cartId: [],
-            prodBoughtId: []
+            prodBoughtId: [],
         })
+        console.log("🚀 ~ file: user.js ~ line 21 ~ User ~ createUser ~ newUser", newUser)
 
         const res =  await newUser.save()
+        console.log("🚀 ~ file: user.js ~ line 24 ~ User ~ createUser ~ res", res)
         return res
     }
 

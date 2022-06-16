@@ -26,9 +26,19 @@ const userMutations = {
         }
     },
 
-    login: (_, {email, password}, {dataSources}) => { 
-        return true
-     }
+    login: (_, { email, password }, { dataSources }) => {
+        return true;
+    },
+
+    upGradeUser: async (_, { email }, { role }) => {
+        const res = await UserModel.findOneAndUpdate({ email: email }, { role: 'ADMIN' });
+        return res
+    },
+    deGradeUser: async (_, { email }, { role }) => {
+        const res = await UserModel.findOneAndUpdate({ email: email }, { role: 'USER' });
+        console.log("🚀 ~ file: mutations.js ~ line 39 ~ deGradeUser: ~ res", res)
+        return res
+    },
 };
 
 module.exports = userMutations;
