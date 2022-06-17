@@ -2,9 +2,10 @@ type Query {
     getProduct(id: Int!): Product!
     getAllProducts: [Product]!
     getProductType(type: typeProd!, limit: Int!): [Product!]!
-    getProductCat(category: String!, limit: Int!): [Product!]!
+    getProductByCat(category: String!, limit: Int!): [Product!]!
     getProductsForHome: [[Product!]!]!
-
+    "get categories be saved in database"
+    getCatsSchema: [CatConstant!]!
     "user's land"
     checkLogin(email: String!, password: String!): CheckLoginRes!
     "get all users"
@@ -49,4 +50,9 @@ type CheckLoginRes {
     success: Boolean!
     message: String!
     user: User
+}
+
+type CatConstant{
+    id: String!
+    name: String!
 }
