@@ -1,5 +1,6 @@
 const ProductModel = require('../src/db/models/product');
 const OrderModel = require('../src/db/models/order');
+const CartModel = require('../src/db/models/cart');
 
 // define
 
@@ -16,4 +17,9 @@ const docs = new OrderModel({
     cancelMes: null,
 });
 
-docs.save();
+const test = async () => { 
+    const getCartById = await CartModel.findOne({ userId: '62ad8b95bc6cda2a04f04629', prodId: [73] });
+    console.log(getCartById)
+ }
+
+ test ()
