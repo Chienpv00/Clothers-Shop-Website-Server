@@ -39,7 +39,7 @@ async function startApolloServer(schema) {
         },
         context: async ({ req, res }) =>{
             if (req.user){
-                return {id: req.user.id, role: 'ADMIN'}
+                return {id: req.user.id, role: req.user.role}
             } else {
                 return {id: null, role: null}
             }
