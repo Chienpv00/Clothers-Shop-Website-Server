@@ -14,4 +14,6 @@ exports.category = [
     { id: 'quan-kieu', name: 'Quần Kiểu' },
 ];
 
+exports.sizes = ['S', 'M', 'L'];
+
 exports.test = { 1: 1, 2: 2 };
