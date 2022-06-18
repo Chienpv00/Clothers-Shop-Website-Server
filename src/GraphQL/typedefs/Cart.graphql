@@ -2,7 +2,6 @@ type Cart {
     id: ID!
     userId: String!
     product: [Product]
-    size: [Size]
 }
 
 type Size {

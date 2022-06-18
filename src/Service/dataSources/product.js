@@ -29,6 +29,10 @@ class Product extends MongoDataSource {
          })
         return raw;
     }
+
+    async getSoldOutByName(prodId,size){
+
+    }
 }
 
 module.exports = Product;

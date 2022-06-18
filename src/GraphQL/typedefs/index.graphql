@@ -37,7 +37,7 @@ type Mutation {
     upGradeUser(email: String!) : User
     deGradeUser(email: String!): User
     "them cart vao gio hang, dau vao la product id, yeu cau check exists trc khi chen"
-    addToCart(prodId: Int!, quantity: Int, size: String): addToCartRes
+    addToCart(prodId: Int!, quantity: Int): addToCartRes 
 
 
 
@@ -72,5 +72,5 @@ type addToCartRes{
     code: Int!
     success: Boolean
     message: String
-    duplicate: Boolean
+    cart: Cart
 }
