@@ -28,6 +28,8 @@ type Query {
     """
     getAllComments: [Comment]!
     getCommentsWithProd(prodId: ID!): [Comment]!
+
+        getCartLength: Int!
 }
 
 type Mutation {
@@ -38,6 +40,7 @@ type Mutation {
     deGradeUser(email: String!): User
     "them cart vao gio hang, dau vao la product id, yeu cau check exists trc khi chen"
     addToCart(prodId: Int!, quantity: Int): addToCartRes 
+    removeCart(prodId: Int): addToCartRes 
 
 
 

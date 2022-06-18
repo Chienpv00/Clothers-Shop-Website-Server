@@ -2,6 +2,7 @@ type Cart {
     id: ID!
     userId: String!
     product: [Product]
+    quantity: Int!
 }
 
 type Size {

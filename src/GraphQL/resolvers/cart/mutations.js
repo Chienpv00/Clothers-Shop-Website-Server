@@ -1,32 +1,69 @@
 const CartModel = require('../../../db/models/cart');
 const UserModel = require('../../../db/models/user');
 
-
 const cartMutations = {
-    addToCart: async (_, { prodId, quantity}, { id, role, dataSources }) => {
+    addToCart: async (_, { prodId, quantity }, { id, role, dataSources }) => {
         try {
             if (!id) {
                 return null;
             }
-            let newCart 
-            // 1.a 2.a, truyen tham so trung prodid, trung size , quantity > 0
-            
+
+            let newCart;
+            // 1.a 2.a, truyen tham so trung prodid , quantity > 0
+            const getCartById = await CartModel.findOne({ userId: id });
+            if (getCartById) {
+                if (getCartById.prodId.includes(prodId) && quantity >= 0) {
+                    const res = await CartModel.findOneAndUpdate(
+                        { userId: id },
+                        { quantity: getCartById.quantity + 1 }
+                    );
+                    const result = await CartModel.findOne({ userId: id });
+                    return {
+                        code: 200,
+                        success: true,
+                        message: 'increase quantity successfully',
+                        cart: result,
+                    };
+                }
+
+                // giam so luong cart
+                if (getCartById.prodId.includes(prodId) && quantity <= 0) {
+                    if (getCartById.quantity === 1) {
+                        return {
+                            code: 200,
+                            success: false,
+                            message: 'quantity == 1',
+                        };
+                    }
+                    const res = await CartModel.findOneAndUpdate(
+                        { userId: id },
+                        { quantity: getCartById.quantity - 1 }
+                    );
+                    const result = await CartModel.findOne({ userId: id });
+                    return {
+                        code: 200,
+                        success: true,
+                        message: 'decrease quantity in cart successfully',
+                        cart: result,
+                    };
+                }
+            }
+
             //1.c Them moi cart
-            newCart = await dataSources.cart.addCart(id, prodId)
-            console.log("🚀 ~ file: mutations.js ~ line 17 ~ addToCart: ~ newCart", newCart)
+            newCart = await dataSources.cart.addCart(id, prodId);
             if (newCart) {
                 return {
-                    code: 200, 
+                    code: 200,
                     success: true,
                     message: 'add new cart successfully',
-                    cart: newCart
-                }
+                    cart: newCart,
+                };
             }
             return {
                 code: 200,
                 success: false,
                 message: 'failed, please check logic in server!',
-            }
+            };
         } catch (error) {
             console.log('🚀 ~ file: mutations.js ~ line 65 ~ addToCart: ~ error', error);
             return {
@@ -36,6 +73,25 @@ const cartMutations = {
             };
         }
     },
+
+    removeCart: async (_, { prodId }) => {
+        try {
+            const res = await CartModel.findOneAndRemove({ prodId: [prodId] });
+            return {
+                code: 200,
+                success: true,
+                message: 'remove cart successfully',
+                cart: res,
+            };
+        } catch (error) {
+            console.log('🚀 ~ file: mutations.js ~ line 81 ~ removeCart: ~ error', error);
+            return {
+                code: 404,
+                success: false,
+                message: 'failed, please check log!',
+            };
+        }
+    },
 };
 
-module.exports = cartMutations
+module.exports = cartMutations;
