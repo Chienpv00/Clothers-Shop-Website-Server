@@ -6,9 +6,9 @@ const ProductModel = require('../../db/models/product');
 
 class Product extends MongoDataSource {
     // get one product with id param
-    async getProduct(id){
-        const res = await this.findByFields({id: id})
-        return res[0]
+    async getProduct(id) {
+        const res = await this.findByFields({ id: id });
+        return res[0];
     }
 
     async getProductType(type, limit) {
@@ -22,6 +22,13 @@ class Product extends MongoDataSource {
         return query;
     }
 
-} 
+    async getProductByArrId(ArrId) {
+        const raw = [];
+        ArrId.map((value) => { 
+            raw.push(this.getProduct(value))
+         })
+        return raw;
+    }
+}
 
 module.exports = Product;

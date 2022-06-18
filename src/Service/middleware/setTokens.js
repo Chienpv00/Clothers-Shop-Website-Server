@@ -4,7 +4,8 @@ function setTokens(user) {
   const sevenDays = 60 * 60 * 24 * 7 * 1000;
   const fifteenMins = 60 * 15 * 1000;
   const accessUser = {
-    id: user._id.valueOf()
+    id: user._id.valueOf(),
+    role: user.role
   };
   const accessToken = sign(
     { user: accessUser },
@@ -15,7 +16,7 @@ function setTokens(user) {
   );
   const refreshUser = {
     id: user._id.valueOf(),
-    count: user.tokenCount
+    role: user.role
   };
   const refreshToken = sign(
     { user: refreshUser },

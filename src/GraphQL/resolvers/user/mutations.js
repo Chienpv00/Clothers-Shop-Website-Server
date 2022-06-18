@@ -1,4 +1,5 @@
 const UserModel = require('../../../db/models/user');
+const constant = require('../../../constant');
 
 const userMutations = {
     createCus: async (_, { user }, { dataSources }) => {
@@ -32,13 +33,14 @@ const userMutations = {
 
     upGradeUser: async (_, { email }, { role }) => {
         const res = await UserModel.findOneAndUpdate({ email: email }, { role: 'ADMIN' });
-        return res
+        return res;
     },
     deGradeUser: async (_, { email }, { role }) => {
         const res = await UserModel.findOneAndUpdate({ email: email }, { role: 'USER' });
-        console.log("🚀 ~ file: mutations.js ~ line 39 ~ deGradeUser: ~ res", res)
-        return res
+        console.log('🚀 ~ file: mutations.js ~ line 39 ~ deGradeUser: ~ res', res);
+        return res;
     },
+    
 };
 
 module.exports = userMutations;

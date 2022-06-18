@@ -1,3 +1,4 @@
+const { findById } = require('../../../db/models/user');
 const UserModel = require('../../../db/models/user');
 
 const userQueries = {
@@ -31,7 +32,7 @@ const userQueries = {
 
     getAllUsers: async (_, __, {dataSources}) => { 
         
-        const allUser = dataSources.user.getAllUsers();
+        const allUser = await dataSources.user.getAllUsers();
         return allUser
      },
 
@@ -39,6 +40,12 @@ const userQueries = {
         if (!role) return null
         const user = await UserModel.findById(id)
         return user
+    },
+    getCart: async (_, __, {dataSources, id}) => { 
+        const user = await UserModel.findById(id);
+        if (user.cartId.length === 0) return [] 
+        const res = await dataSources.product.getProductByArrId(user.cartId)
+        return res
     }
 };
 

@@ -36,7 +36,7 @@ class User extends MongoDataSource {
     }
 
     async getAllUsers(){
-        const raw = await this.findByFields({})
+        const raw = await UserModel.find({})
         return raw
     }
 }

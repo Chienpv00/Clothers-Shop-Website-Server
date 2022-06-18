@@ -1,15 +1,14 @@
 type User {
     id: ID!
+    email: String!
     password: String!
     "information"
     fullName: String!
     phone: Int
-    email: String!
     image: String
     enable: Boolean!
     verificationCode: String
     role: Role
-    cardId: [ID]
     prodBoughtId: [ID]
 }
 
@@ -19,8 +18,6 @@ type CreateCusResponse {
     message: String!
     user: User
 }
-
-
 
 enum Role {
     ADMIN
