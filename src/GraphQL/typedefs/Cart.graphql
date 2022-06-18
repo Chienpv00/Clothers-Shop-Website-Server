@@ -1,0 +1,11 @@
+type Cart {
+    id: ID!
+    userId: String!
+    product: [Product]
+    size: [Size]
+}
+
+type Size {
+    name: String,
+    soldOut: Boolean
+}

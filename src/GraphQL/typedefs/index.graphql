@@ -6,14 +6,21 @@ type Query {
     getProductsForHome: [[Product!]!]!
     "get categories be saved in database"
     getCatsSchema: [CatConstant!]!
-    "user's land"
+    """
+    **********
+    user's zone
+    **********
+    check login
+    """
     checkLogin(email: String!, password: String!): CheckLoginRes!
     "get all users"
-    getAllUsers: [User!]
+    getAllUsers: [User!]!
 
     loggedInUser: User
-
+    "input: token"
     getUser: User
+
+    getCart: [Cart]
 
 
     """
@@ -29,6 +36,10 @@ type Mutation {
     "user land"
     upGradeUser(email: String!) : User
     deGradeUser(email: String!): User
+    "them cart vao gio hang, dau vao la product id, yeu cau check exists trc khi chen"
+    addToCart(prodId: Int!, quantity: Int, size: String): addToCartRes
+
+
 
 }
 
@@ -55,4 +66,11 @@ type CheckLoginRes {
 type CatConstant{
     id: String!
     name: String!
+}
+
+type addToCartRes{
+    code: Int!
+    success: Boolean
+    message: String
+    duplicate: Boolean
 }
