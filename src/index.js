@@ -11,6 +11,7 @@ const UserModel = require('./db/models/user');
 const OrderModel = require('./db/models/order');
 const CommentModel = require('./db/models/comment');
 const AuthModel = require('./db/models/auth');
+const CartModel = require('./db/models/cart');
 
 // import class from dataSources
 const Product = require('./Service/dataSources/product');
@@ -18,6 +19,7 @@ const User = require('./Service/dataSources/user');
 const Order = require('./Service/dataSources/order');
 const Comment = require('./Service/dataSources/comment');
 const Auth = require('./Service/dataSources/auth');
+const Cart = require('./Service/dataSources/cart');
 
 async function startApolloServer(schema) {
     const app = express();
@@ -35,6 +37,7 @@ async function startApolloServer(schema) {
                 order: new Order(OrderModel),
                 comment: new Comment(CommentModel),
                 auth: new Auth(AuthModel),
+                cart: new Cart(CartModel)
             };
         },
         context: async ({ req, res }) =>{
