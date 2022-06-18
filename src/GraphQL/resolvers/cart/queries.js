@@ -1,18 +1,18 @@
 const CartModel = require('../../../db/models/cart');
 
 const cartQueries = {
-    getCart: async (_, ___, {}) => {
+    getCart: async (_, ___, {id}) => {
         try {
-            const res = await CartModel.find({});
+            const res = await CartModel.find({userId: id});
             return res;
         } catch (error) {
             console.log('🚀 ~ file: queries.js ~ line 10 ~ getCart: ~ error', error);
             return null;
         }
     },
-    getCartLength: async (_, __) => { 
+    getCartLength: async (_, __, {id}) => { 
         try {
-            const res = await CartModel.find({});
+            const res = await CartModel.find({userId: id});
             if (res) return res.length
 
             return 0
