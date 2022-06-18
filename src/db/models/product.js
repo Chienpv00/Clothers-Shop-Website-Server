@@ -15,14 +15,16 @@ const ProductSchema = new Schema({
     description: { type: String },
     type: { type: String, required: true },
     material: { type: String, required: true },
-    form: { type: String, required: true }, 
+    form: { type: String, required: true },
     color: { type: String, required: true },
     madeBy: { type: String, required: true },
     sizes: [sizeSchema],
     soldOut: { type: Boolean, required: true },
     commentId: { type: Array },
+    created: {
+        type: Date,
+        default: Date.now,
+    },
 });
-
-
 
 module.exports = model('Product', ProductSchema);
