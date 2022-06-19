@@ -1,15 +1,16 @@
 const { Schema, model } = require('mongoose');
 
 const OrderSchema = new Schema({
-    productId: { type: Array, required: true },
-    totalPrice: { type: Number, required: true },
+    productId: { type: Array},
+    totalPrice: { type: Number},
     timeConfirm: { type: Date},
-    userId: {type: String, required: true},
-    address: {type: String, required: true},
-    status: {type: Boolean, required: true},
-    payment: {type: Boolean, required: true},
-    pickPack: {type: Boolean, required: true},
-    delivered: {type: Boolean, required: true},
+    userId: {type: String},
+    address: {type: String},
+    method: Number,
+    status: {type: Boolean},
+    payment: {type: Boolean},
+    pickPack: {type: Boolean},
+    delivered: {type: Boolean},
     cancelMes: {type: String},
     created: {
         type: Date,

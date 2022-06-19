@@ -13,7 +13,8 @@ const authQueries = require('./auth/queries')
 const cartQueries = require('./cart/queries');
 const cartFields = require('./cart/fields');
 const cartMutations = require('./cart/mutations')
-// resolvers chain
+
+const orderMutatons = require('./order/mutations');
 
 const resolvers = {
     Query: {
@@ -26,7 +27,8 @@ const resolvers = {
     Mutation: {
         ...userMutations,
         ...authMutations,
-        ...cartMutations
+        ...cartMutations,
+        ...orderMutatons
     },
 
     ...productFields,

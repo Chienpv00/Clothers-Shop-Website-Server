@@ -42,7 +42,7 @@ type Mutation {
     addToCart(prodId: Int!, quantity: Int): addToCartRes 
     removeCart(prodId: Int): addToCartRes 
 
-
+    addOrder(prodIdArr: [Int], address: String!, method: Int!, total: Int!):addOrderRes!
 
 }
 
@@ -76,4 +76,11 @@ type addToCartRes{
     success: Boolean
     message: String
     cart: Cart
+}
+
+type addOrderRes{
+    code: Int!
+    success: Boolean!
+    message: String!
+    order: Order
 }

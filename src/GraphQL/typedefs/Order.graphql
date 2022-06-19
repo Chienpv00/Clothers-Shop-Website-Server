@@ -4,11 +4,15 @@ type Order {
     product: [Product!]!
     "total price of products"
     totalPrice: Float!
-    timeOrder: String!
+    timeConfirm: String!
     "id of user order"
-    use: User!
+    user: User!
     "status: confirm or not"
     status: Boolean!
+    method: Int!
+    payment: Boolean!
+    pickPack: Boolean!
+    delivered: Boolean!
     "if cancel == null ... else ..."
     cancelMes: String
 }
